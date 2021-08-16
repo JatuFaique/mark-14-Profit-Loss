@@ -5,15 +5,33 @@ var submitBtn = document.querySelector('#submit-btn');
 var outputBox = document.querySelector('#output-box');
 
 function submitHandler(){
-    var ip = initialPrice.value;
-    var qty = stocksQuantity.value;
-    var cp = currentPrice.value;
+    var ip = Number(initialPrice.value);
+    var qty = Number(stocksQuantity.value);
+    var cp = Number(currentPrice.value);
     
     calculateProfitLoss(ip,qty,cp);
     
 }
 
 submitBtn.addEventListener('click', submitHandler);
+
+function showOutput(message){
+    /* switch (status) {
+        case 'PROFIT':
+            outputBox.innerHTML=message;
+            break;
+        case 'LOSS':
+            outputBox.innerHTML = message;
+            break;
+        case ''
+    
+        default:
+            break;
+    } */
+    
+    outputBox.innerHTML=message
+
+}
 
 
 
@@ -22,13 +40,20 @@ function calculateProfitLoss(initialPrice,stocksQuantity,currentPrice){
         var loss = (initialPrice - currentPrice)*stocksQuantity;
         var losspercentage = (loss/initialPrice) * 100;
 
+        showOutput(`Loss ${loss} and loss percent ${losspercentage}`)
         console.log(`Loss ${loss} and loss percent ${losspercentage}`)
+
+
     }
-    else{
+    else if (initialPrice<currentPrice){
         var profit = (currentPrice-initialPrice)*stocksQuantity;
         var profitpercentage = (profit/initialPrice) * 100;
 
-        console.log(`Profit ${profit} and profit percent ${profitpercentage}`)
+        showOutput(`Profit ${profit} and profit percent ${profitpercentage}`)
 
     }
+    else{
+        showOutput(`No pain No Gain`)
+    }
 }
+

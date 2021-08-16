@@ -9,3 +9,7 @@ label {
   display: block;
   padding-bottom: 1rem;
 }
+
+#output-box {
+  padding-top: 2rem;
+}
