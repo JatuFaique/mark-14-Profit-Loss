@@ -40,8 +40,8 @@ function calculateProfitLoss(initialPrice,stocksQuantity,currentPrice){
         var loss = (initialPrice - currentPrice)*stocksQuantity;
         var losspercentage = (loss/initialPrice) * 100;
 
-        showOutput(`Loss ${loss} and loss percent ${losspercentage}`)
-        console.log(`Loss ${loss} and loss percent ${losspercentage}`)
+        showOutput("<h2>"+`Loss ${loss} and loss percent ${losspercentage}`)
+        console.log(`Loss ${loss} and loss percent ${losspercentage}`+"</h2>")
 
 
     }
@@ -49,7 +49,7 @@ function calculateProfitLoss(initialPrice,stocksQuantity,currentPrice){
         var profit = (currentPrice-initialPrice)*stocksQuantity;
         var profitpercentage = (profit/initialPrice) * 100;
 
-        showOutput(`Profit ${profit} and profit percent ${profitpercentage}`)
+        showOutput(`Profit ${profit} and profit percent ${profitpercentage}%`)
 
     }
     else{
